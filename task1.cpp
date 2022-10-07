@@ -1,92 +1,46 @@
 #include<iostream>
+#include<cstring>
+
 using namespace std;
 
-struct node
+struct students 
 {
-    int data;
-    node *next;
-};
-
-void inserttail(node *head)
-{
-    struct node *newnode;
-    newnode = new node;
-    cout<<"Enter Data for node "<<endl;
-    int a;
-    cin>>a;
-    newnode->data=a;
-    newnode->next=NULL;
-    struct node *temp= head;
-    while(temp->next != NULL)
-    {
-        temp=temp->next;
-    }
-     temp->next=newnode;
+  
+  int regno;
+  string name;
+  float cgpa;
 
 };
-
-void insertstart(node *&head)
-{
-    struct node *newnode;
-    newnode= new node;
-    cout<<"Enter Data for node "<<endl;
-    int a;
-    cin>>a;
-    newnode->data=a;
-    newnode->next= head;
-    head= newnode;
-};
-
-void display(node *head)
-{
-  struct node *temp;
-  temp= head;
-  int count=1;
-  while(temp->next != NULL)
+ void initialise( students s[], int size)
   {
-    cout<<"Value of node "<<count<<" is "<<temp->data<<endl;
-    count++;
+      for(int i=1;i<=size;i++)
+      {
+        cout<<"enter reg number "<<endl;
+        cin>>s[i].regno;
+        cin.ignore();
+        cout<<"enter name "<<endl;
+        getline(cin , s[i].name);
+        cout<<"enter CGPA"<<endl;
+        cin>>s[i].cgpa;
+      }
+  }
+  void display(students s[], int size)
+  {
+    for(int i=1;i<=size;i++)
+    {
+        cout<<"reg number of student number "<<i<<" is "<<s[i].regno<<endl;
+        cout<<"name number of student number "<<i<<" is "<<s[i].name<<endl;
+        cout<<"CGPA number of student number "<<i<<" is "<<s[i].cgpa<<endl;
+    }
+
   }
 
-};
-
-void insertmiddle(node *head)
-{
-    int count=0;
-    struct node *newnode;
-    newnode= new node;
-    struct node *temp=head;
-    while(temp->next != NULL)
-    {
-        count++;
-    }
-    cout<<"The size of list is "<<count<<" , Where do you want to add the node? "<<endl;
-    int b;
-    cin>>b;
-    cout<<"Enter data for node "<<endl;
-    int a;
-    cin>>a;
-    newnode->data=a;
-    for(int i=0;i<count;i++)
-    {
-      if(temp->next !=NULL)
-      {
-         temp = temp->next;
-        if(i==b)
-        {
-            newnode->next = temp->next;
-            temp->next = newnode;
-        }
-      }
-
-}
-
-
 int main()
-{
+{   
+    int size=4;
+    students s[size];
+    initialise(s , size);
+    display(s , size);
 
-
-
-
-return 0;
+    return 0;
 }
