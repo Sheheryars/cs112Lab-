@@ -1,45 +1,23 @@
 #include<iostream>
-#include<cstring>
 
 using namespace std;
 
-struct member
-{
-  
-  int age;
-  string name;
-  double salary;
-
-};
- void initialise( member &s)
-  {
-      
-      
-        cout<<"enter age "<<endl;
-        cin>>s.age;
-        cin.ignore();
-        cout<<"enter name "<<endl;
-        getline(cin , s.name);
-        cout<<"enter salary"<<endl;
-        cin>>s.salary;
-      
-  }
-  void display(member &s)
-  {
-  
-    
-        cout<<"Name of member is "<<s.name<<endl;
-        cout<<"Age of member is "<<s.age<<endl;
-        cout<<"Salary of member is "<<s.salary<<endl;
-   
-
-  }
-
 int main()
-{   
-    member s;
-    initialise(s);
-    display(s);
+{
+ int x=90;
+ int *ptrx;
+ int **ptp;
+ ptrx=&x;
+ ptp=&ptrx;
 
-    return 0;
+ cout<<"the address of x is "<<&x<<endl;
+ cout<<"the address of ptrx is "<<&ptrx<<endl;
+ cout<<"the address ptrx is pointing to is "<<ptrx<<endl;
+ cout<<"the address of ptp is "<<&ptp<<endl;
+ cout<<"the address ptp is pointing to is "<<ptp<<endl;
+ cout<<"Value of x "<<x<<endl;
+ cout<<"Value of ptrx "<<*ptrx<<endl;
+ cout<<"Value of ptp "<<**ptp<<endl;   
+
+return 0;
 }
